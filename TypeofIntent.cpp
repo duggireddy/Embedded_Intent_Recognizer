@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <algorithm>
 
 
 vector<string> CIntentType::StringToWords(const string & strInput)
