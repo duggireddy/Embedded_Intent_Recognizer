@@ -1,18 +1,18 @@
-#include "../IntentType.h"
+#include "../TypeofIntent.h"
 #include <gtest/gtest.h>
 
 class IntentTypeTest : public ::testing::Test {
-	protected:
-		IntentTypeTest(){}
-		virtual ~IntentTypeTest(){} 
-		virtual void SetUp(){} 
-		virtual void TearDown(){} 
+protected:
+    IntentTypeTest() {}
+    virtual ~IntentTypeTest() {}
+    virtual void SetUp() {}
+    virtual void TearDown() {}
 };
 
 // Get Weather
 TEST(IntentTypeTest, intentGetWeather1)
 {
-    IntentType type("What is the weather like tomorrow");
+    CIntentType type("What is the weather like tomorrow");
     ASSERT_EQ(type.getType(), "Get Weather");
     ASSERT_EQ(type.getCity(), "");
     ASSERT_EQ(type.getTime(), "tomorrow");
@@ -20,7 +20,7 @@ TEST(IntentTypeTest, intentGetWeather1)
 
 TEST(IntentTypeTest, intentGetWeather2)
 {
-    IntentType type("What is the Forecast for next week?");
+    CIntentType type("What is the Forecast for next week?");
     ASSERT_EQ(type.getType(), "Get Weather");
     ASSERT_EQ(type.getCity(), "");
     ASSERT_EQ(type.getTime(), "next week");
@@ -28,7 +28,7 @@ TEST(IntentTypeTest, intentGetWeather2)
 
 TEST(IntentTypeTest, intentGetWeather3)
 {
-    IntentType type("whats the forecast today?");
+    CIntentType type("whats the forecast today?");
     ASSERT_EQ(type.getType(), "Get Weather");
     ASSERT_EQ(type.getCity(), "");
     ASSERT_EQ(type.getTime(), "today");
@@ -36,7 +36,7 @@ TEST(IntentTypeTest, intentGetWeather3)
 
 TEST(IntentTypeTest, intentGetWeather4)
 {
-    IntentType type("I Would like to know the weather today.");
+    CIntentType type("I Would like to know the weather today.");
     ASSERT_EQ(type.getType(), "Get Weather");
     ASSERT_EQ(type.getCity(), "");
     ASSERT_EQ(type.getTime(), "today");
@@ -45,7 +45,7 @@ TEST(IntentTypeTest, intentGetWeather4)
 //Get Weather City
 TEST(IntentTypeTest, intentGetWeatherCity1)
 {
-    IntentType type("What is the weather like tomorrow in Berlin?");
+    CIntentType type("What is the weather like tomorrow in Berlin?");
     ASSERT_EQ(type.getType(), "Get Weather City");
     ASSERT_EQ(type.getCity(), "berlin");
     ASSERT_EQ(type.getTime(), "tomorrow");
@@ -53,7 +53,7 @@ TEST(IntentTypeTest, intentGetWeatherCity1)
 
 TEST(IntentTypeTest, intentGetWeatherCity2)
 {
-    IntentType type("What is the weather going to be like in Frankfurt today?");
+    CIntentType type("What is the weather going to be like in Frankfurt today?");
     ASSERT_EQ(type.getType(), "Get Weather City");
     ASSERT_EQ(type.getCity(), "frankfurt");
     ASSERT_EQ(type.getTime(), "today");
@@ -61,7 +61,7 @@ TEST(IntentTypeTest, intentGetWeatherCity2)
 
 TEST(IntentTypeTest, intentGetWeatherCity3)
 {
-    IntentType type("What is the forecast in london for next sunday?");
+    CIntentType type("What is the forecast in london for next sunday?");
     ASSERT_EQ(type.getType(), "Get Weather City");
     ASSERT_EQ(type.getCity(), "london");
     ASSERT_EQ(type.getTime(), "next sunday");
@@ -69,7 +69,7 @@ TEST(IntentTypeTest, intentGetWeatherCity3)
 
 TEST(IntentTypeTest, intentGetWeatherCity4)
 {
-    IntentType type("I Would like to know the weather in Binyamina");
+    CIntentType type("I Would like to know the weather in Binyamina");
     ASSERT_EQ(type.getType(), "Get Weather City");
     ASSERT_EQ(type.getCity(), "binyamina");
     ASSERT_EQ(type.getTime(), "");
@@ -78,7 +78,7 @@ TEST(IntentTypeTest, intentGetWeatherCity4)
 //Get Fact
 TEST(IntentTypeTest, intentGetFact1)
 {
-    IntentType type("Tell me an interesting fact.");
+    CIntentType type("Tell me an interesting fact.");
     ASSERT_EQ(type.getType(), "Get Fact");
     ASSERT_EQ(type.getCity(), "");
     ASSERT_EQ(type.getTime(), "");
@@ -86,7 +86,7 @@ TEST(IntentTypeTest, intentGetFact1)
 
 TEST(IntentTypeTest, intentGetFact2)
 {
-    IntentType type("Tell me something I don't know.");
+    CIntentType type("Tell me something I don't know.");
     ASSERT_EQ(type.getType(), "Get Fact");
     ASSERT_EQ(type.getCity(), "");
     ASSERT_EQ(type.getTime(), "");
@@ -94,7 +94,7 @@ TEST(IntentTypeTest, intentGetFact2)
 
 TEST(IntentTypeTest, intentGetFact3)
 {
-    IntentType type("I want to know something new.");
+    CIntentType type("I want to know something new.");
     ASSERT_EQ(type.getType(), "Get Fact");
     ASSERT_EQ(type.getCity(), "");
     ASSERT_EQ(type.getTime(), "");
@@ -103,7 +103,8 @@ TEST(IntentTypeTest, intentGetFact3)
 //Intent Not Found
 TEST(IntentTypeTest, intentIntentNotFound)
 {
-    IntentType type("Is it true that mangos are delicious?");
+    CIntentType type("Is it true that mangos are delicious?");
+
     ASSERT_EQ(type.getType(), "Intent Not Found");
     ASSERT_EQ(type.getCity(), "");
     ASSERT_EQ(type.getTime(), "");
