@@ -15,6 +15,7 @@ static vector<string> timing{"morning","afternoon", "evening","today", "tomorrow
 static vector<string> expectedTime{"next", "last", "on", "at"};
 
 
+
 class CIntentType
 {
 private:
@@ -35,8 +36,5 @@ public:
     
 
 };
-
-
-
 
 #endif //INTENT_TYPE_H

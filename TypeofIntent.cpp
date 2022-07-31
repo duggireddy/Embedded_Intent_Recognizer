@@ -5,6 +5,9 @@
 #include <algorithm>
 
 
+
+//Spliting string in to words
+
 vector<string> CIntentType::StringToWords(const string & strInput)
 {
     istringstream ss(strInput);   
@@ -29,6 +32,7 @@ CIntentType::CIntentType(const string & strSentence)
 }
 
 
+//checking each word by using clue and fetch the Intent according to that
 
 vector<string> CIntentType::IntentOutput(const vector<string> & m_vwords)
 {
@@ -46,11 +50,11 @@ vector<string> CIntentType::IntentOutput(const vector<string> & m_vwords)
     {
         for (int i = 0; i < word.size(); i++) 
         {
-            //for case-insensitive comparison
+            //for case-insensitive comparison and convert UpperCase to lower
             if (word[i] >= 'A' && word[i] <= 'Z')
                 word[i]= tolower(word[i]);
             
-            //special character
+            //Remove the special characters
             else if (word[i] < 'a' || word[i] > 'z')
             {
                 word.erase(i, 1);
@@ -88,9 +92,11 @@ vector<string> CIntentType::IntentOutput(const vector<string> & m_vwords)
             strtimePhrase = word;
         }    
     }
+  
 
+    //Conditions for get Intent according to clues 
 
-    strtype= bhasWeather ? strcity.empty() ? "Get Weather" : "Get Weather City": bhasFactClue? "Get Fact": "Intent Not Found";
+    strtype = bhasWeather ? strcity.empty() ? "Get Weather" : "Get Weather City": bhasFactClue? "Get Fact": "Intent Not Found";
 
 
 

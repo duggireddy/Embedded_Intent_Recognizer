@@ -12,15 +12,15 @@ protected:
 // Get Weather
 TEST(IntentTypeTest, intentGetWeather1)
 {
-    CIntentType type("What is the weather like tomorrow");
+    CIntentType type("What is the weather like today");
     ASSERT_EQ(type.getType(), "Get Weather");
     ASSERT_EQ(type.getCity(), "");
-    ASSERT_EQ(type.getTime(), "tomorrow");
+    ASSERT_EQ(type.getTime(), "today");
 }
 
 TEST(IntentTypeTest, intentGetWeather2)
 {
-    CIntentType type("What is the Forecast for next week?");
+    CIntentType type("What is the Forecast for next evening?");
     ASSERT_EQ(type.getType(), "Get Weather");
     ASSERT_EQ(type.getCity(), "");
     ASSERT_EQ(type.getTime(), "next week");
@@ -28,26 +28,26 @@ TEST(IntentTypeTest, intentGetWeather2)
 
 TEST(IntentTypeTest, intentGetWeather3)
 {
-    CIntentType type("whats the forecast today?");
+    CIntentType type("whats the forecast evening?");
     ASSERT_EQ(type.getType(), "Get Weather");
     ASSERT_EQ(type.getCity(), "");
-    ASSERT_EQ(type.getTime(), "today");
+    ASSERT_EQ(type.getTime(), "evening");
 }
 
 TEST(IntentTypeTest, intentGetWeather4)
 {
-    CIntentType type("I Would like to know the weather today.");
+    CIntentType type("I Would like to know the weather afternoon.");
     ASSERT_EQ(type.getType(), "Get Weather");
     ASSERT_EQ(type.getCity(), "");
-    ASSERT_EQ(type.getTime(), "today");
+    ASSERT_EQ(type.getTime(), "afternoon");
 }
 
 //Get Weather City
 TEST(IntentTypeTest, intentGetWeatherCity1)
 {
-    CIntentType type("What is the weather like tomorrow in Berlin?");
+    CIntentType type("What is the weather like tomorrow in India?");
     ASSERT_EQ(type.getType(), "Get Weather City");
-    ASSERT_EQ(type.getCity(), "berlin");
+    ASSERT_EQ(type.getCity(), "india");
     ASSERT_EQ(type.getTime(), "tomorrow");
 }
 
@@ -104,6 +104,15 @@ TEST(IntentTypeTest, intentGetFact3)
 TEST(IntentTypeTest, intentIntentNotFound)
 {
     CIntentType type("Is it true that mangos are delicious?");
+
+    ASSERT_EQ(type.getType(), "Intent Not Found");
+    ASSERT_EQ(type.getCity(), "");
+    ASSERT_EQ(type.getTime(), "");
+}
+
+TEST(IntentTypeTest, intentIntentNotFound1)
+{
+    CIntentType type(" is this really dam danger code?");
 
     ASSERT_EQ(type.getType(), "Intent Not Found");
     ASSERT_EQ(type.getCity(), "");
